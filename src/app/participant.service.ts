@@ -15,8 +15,9 @@ const httpOptions = {
 @Injectable()
 export class ParticipantService {
 
-  private participantUrl = 'http://localhost:3000/api/participants';  // URL to web api
-
+  // private URL = 'http://localhost:3000/api/participants';  // URL to local api
+  private URL = 'https://ghi-danh-server.herokuapp.com/api';  // URL to web api
+  
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
@@ -24,7 +25,7 @@ export class ParticipantService {
   /** GET participants from the server */
   getParticipants (): Observable<Participant[]> {
 
-    return this.http.get<Participant[]>(this.participantUrl)
+    return this.http.get<Participant[]>(`${this.URL}/participants/`)
       .pipe(
         tap(data => this.log(`fetched participant`)),
         catchError(this.handleError('getParticipants', []))
@@ -33,7 +34,7 @@ export class ParticipantService {
 
   /** GET participant by id. Return `undefined` when id not found */
   getParticipantNo404<Data>(id: number): Observable<Participant> {
-    const url = `${this.participantUrl}/?id=${id}`;
+    const url = `${this.URL}/participants/?id=${id}`;
     return this.http.get<Participant[]>(url)
       .pipe(
         map(participant => participant[0]), // returns a {0|1} element array
@@ -47,7 +48,7 @@ export class ParticipantService {
 
   /** GET participant by id. Will 404 if id not found */
   getParticipant(id: string): Observable<Participant> {
-    const url = `${this.participantUrl}/${id}`;
+    const url = `${this.URL}/participants/${id}`;
     return this.http.get<Participant>(url).pipe(
       tap(_ => this.log(`fetched participant id=${id}`)),
       catchError(this.handleError<Participant>(`getParticipant id=${id}`))
@@ -70,7 +71,7 @@ export class ParticipantService {
 
   /** POST: add a new participant to the server */
   addParticipant (participant: Participant): Observable<Participant> {
-    return this.http.post<Participant>(this.participantUrl, participant, httpOptions).pipe(
+    return this.http.post<Participant>(`${this.URL}/participants`, participant, httpOptions).pipe(
       tap((participant: Participant) => this.log(`added participant`)),
       catchError(this.handleError<Participant>('addParticipant'))
     );
@@ -79,7 +80,7 @@ export class ParticipantService {
   /** DELETE: delete the participant from the server */
   deleteParticipant (participant: Participant | number): Observable<Participant> {
     const _id = typeof participant === 'number' ? participant : participant._id;
-    const url = `${this.participantUrl}/${_id}`;
+    const url = `${this.URL}/participants/${_id}`;
 
     return this.http.delete<Participant>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted participant _id=${_id}`)),
@@ -89,7 +90,7 @@ export class ParticipantService {
 
   /** PUT: update the participant on the server */
   updateParticipant (participant: Participant): Observable<any> {
-    return this.http.put(this.participantUrl, participant, httpOptions).pipe(
+    return this.http.put(`${this.URL}/participants`, participant, httpOptions).pipe(
       tap(_ => this.log(`updated participant id=${participant._id}`)),
       catchError(this.handleError<any>('updateParticipant'))
     );
@@ -97,7 +98,7 @@ export class ParticipantService {
 
   getClasses():Observable<any> {
 
-    return this.http.get('http://localhost:3000/api/classes')
+    return this.http.get(`${this.URL}/classes`)
       .pipe(
         tap(data => this.log(`fetched classes`)),
         catchError(this.handleError('getClasses', []))
@@ -106,12 +107,12 @@ export class ParticipantService {
 
    getClassesCSV():Observable<any> {
 
-    return this.http.get('http://localhost:3000/api/csv/class/1')
+    return this.http.get(`${this.URL}/participants/csv/class/1`)
   }
 
   getBedrooms():Observable<any> {
 
-    return this.http.get('http://localhost:3000/api/bedrooms')
+    return this.http.get(`${this.URL}/bedrooms`)
       .pipe(
         tap(data => this.log(`fetched bedrooms`)),
         catchError(this.handleError('getBedrooms', []))
