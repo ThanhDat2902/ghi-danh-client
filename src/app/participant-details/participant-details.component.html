@@ -88,13 +88,13 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field>
+<!--       <mat-form-field>
         <mat-select [(ngModel)] = "participant.bedroom" name="bedroom" placeholder={{participant.bedroom.name}}>
           <mat-option *ngFor="let bedroom of bedrooms" value={{bedroom._id}}>
             {{bedroom.name}}
           </mat-option>
         </mat-select>
-      </mat-form-field> 
+      </mat-form-field>  -->
 
     <mat-form-field>
       <input type="text" placeholder="Bedroom" [(ngModel)]="participant.bedroom" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" name="bedroom"> 

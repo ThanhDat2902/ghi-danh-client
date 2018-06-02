@@ -11,8 +11,9 @@ import { Bedroom } from './classes/bedroom';
 @Injectable()
 export class BedroomService {
 
-  private bedroomURL = 'http://localhost:3000/api/bedrooms';  // URL to web api
-
+  // private bedroomURL = 'http://localhost:3000/api/bedrooms';  // URL to local api
+  private bedroomURL = 'https://ghi-danh-server.herokuapp.com/api/bedrooms';  // URL to web api
+  
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
