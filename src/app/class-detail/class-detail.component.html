@@ -1,0 +1,10 @@
+<h2>Classes</h2>
+
+<div class="grid grid-pad">
+  <a *ngFor="let class of classes" class="col-sm-2">
+    <!-- <div *ngIf="class.count>0; else full" routerLink="/class-detail/{{class._id}}"> -->
+      <div class="module">
+        <h4>{{class}}</h4>     
+      </div>
+  </a>
+</div>

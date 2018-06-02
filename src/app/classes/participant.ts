@@ -1,0 +1,33 @@
+export class Participant {
+	_id: string;
+	participant_id: number;
+	name: string;
+	surname: string;
+	gender: string;
+	dharma_name: string;
+	birth_date: number;
+	previous_seminars: number[];
+	arriaval_time: number;
+	arriaval_means_of_transport: string;
+	arriaval_flightnumber: string;
+	departure_time: number;
+	departure_means_of_transport: string;
+	departure_flightnumber: string;
+	address_street: string;
+	address_number: string;
+	address_city: string;
+	address_zip_code: number;
+	address_country: string;
+	telnr: number;
+	email: string;
+	fees: number;
+	semiar_donation: number;
+	monk_donation: number;
+	rice_donation: number;
+	class: string;
+	bedroom: string;
+	workgroup: string;
+	tho_bo_tat_gioi: boolean;
+	tho_ngu_gioi: boolean;
+	recieved_nametag: boolean;
+}

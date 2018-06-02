@@ -1,0 +1,25 @@
+<h2>Bedroom {{selected_bedroom.name | uppercase}}</h2>
+<h4>House: {{selected_bedroom.house}}</h4>
+<h4>Free Capacity: {{selected_bedroom.free_capacity}}</h4>
+
+<table *ngIf='participants.length>0' class="table table-striped table-condensed">
+	<thead>
+    	<tr>
+    		<th>ID</th>
+        	<th>Name</th>
+        	<th>Surname</th>
+        	<th>Dharma-Name</th>
+        	<th>Class</th>
+        	<th>Workgroup</th>
+
+    	</tr>
+    <tbody>
+		<tr *ngFor="let participant of participants" routerLink="/participant-detail/{{participant._id}}">
+			<td>{{participant.participant_id}}</td>
+			<td>{{participant.name}}</td>
+			<td>{{participant.surname}}</td>
+			<td>{{participant.dharma_name}}</td>
+			<td>{{participant.class}}</td>
+			<td>{{participant.workgroup}}</td>
+	</tbody>
+</table>

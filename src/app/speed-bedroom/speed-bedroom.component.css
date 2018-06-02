@@ -1,0 +1,11 @@
+mat-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+mat-form-field {
+	font-size: xx-large;
+	width: 40%;
+	padding: 0.2em;
+}

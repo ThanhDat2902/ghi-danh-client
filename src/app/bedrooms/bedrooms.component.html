@@ -1,0 +1,22 @@
+<h2>Bedrooms</h2>
+
+<div class="grid grid-pad">
+  <a *ngFor="let bedroom of bedrooms" class="col-sm-2">
+    <!-- <div *ngIf="bedroom.count>0; else full" routerLink="/bedroom-detail/{{bedroom._id}}"> -->
+      <div *ngIf="bedroom.free_capacity>0; else full" (click)=onSelectBedroom(bedroom)>
+      <div class="module">
+        <h4>{{bedroom.name}} <div>{{bedroom.count}}/{{bedroom.capacity}}</div> </h4>     
+      </div>
+    </div>
+    <ng-template #full>
+      <!-- <div class="full module" routerLink="/bedroom-detail/{{bedroom._id}}"> -->
+        <div class="full module" (click)=onSelectBedroom(bedroom)>
+            <h4>{{bedroom.name}} <div>full</div> </h4>     
+      </div>
+    </ng-template>
+  </a>
+</div>
+
+<app-bedroom-details *ngIf=selected_bedroom [selected_bedroom]='selected_bedroom' [participants]='participants'></app-bedroom-details>
+
+

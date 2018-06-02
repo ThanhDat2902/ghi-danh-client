@@ -1,0 +1,233 @@
+<div *ngIf="participant">
+	<h2>#{{ participant.participant_id}} {{ participant.name | uppercase }} Details</h2>
+
+<div class="container" >
+
+	<form>
+		<mat-card>
+      <mat-card-title>  General Informations </mat-card-title>  
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.participant_id" matInput placeholder="ID" type="number" name="participant_id" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.name" matInput placeholder="Name" type="text" name="name" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.surname" matInput placeholder="Surname" type="text" name="surname">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select [(ngModel)] = "participant.gender" placeholder="Gender" name="gender">
+          <mat-option value="male">male</mat-option>
+          <mat-option value="female">female</mat-option>
+          <mat-option value="others">others</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.dharma_name" matInput placeholder="Dharma Name" type="text" matInput name="dharma_name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.birth_date" matInput [matDatepicker]="picker" placeholder="Birthdate" name="birth_date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>  Seminar Organisation </mat-card-title> 
+
+        <mat-form-field *ngIf="participant.previous_seminars">
+          <mat-select [(ngModel)] = "participant.previous_seminars" placeholder="Previous Seminars" name="previous_seminars">
+            <mat-option value="first">first time</mat-option>
+            <mat-option value="1-2">1-2</mat-option>
+            <mat-option value="multiple">multiple</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="!participant.previous_seminars">
+          <mat-select [(ngModel)] = "participant.previous_seminars" placeholder="Previous Seminars" name="previous_seminars">
+            <mat-option value="first">first time</mat-option>
+            <mat-option value="1-2">1-2</mat-option>
+            <mat-option value="multiple">multiple</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      <mat-form-field *ngIf="participant.class">
+        <mat-select [(ngModel)] = "participant.class" placeholder="Class" name="class">
+        <mat-option value="OV">Oanh Vu</mat-option>
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="3">4</mat-option>
+        <mat-option value="none">none</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="!participant.class">
+        <mat-select [(ngModel)] = "participant.class" placeholder="Class" name="class">
+          <mat-option value="OV">Oanh Vu</mat-option>
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="none">none</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select [(ngModel)] = "participant.workgroup" placeholder="Workgroup" name="workgroup" >
+          <mat-option value="WG1">WG1</mat-option>
+          <mat-option value="WG2">WG2</mat-option>
+          <mat-option value="WG3">WG3</mat-option>
+          <mat-option value="WG4">WG4</mat-option>
+          <mat-option value="none">none</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select [(ngModel)] = "participant.bedroom" name="bedroom" placeholder={{participant.bedroom.name}}>
+          <mat-option *ngFor="let bedroom of bedrooms" value={{bedroom._id}}>
+            {{bedroom.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+    <mat-form-field>
+      <input type="text" placeholder="Bedroom" [(ngModel)]="participant.bedroom" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" name="bedroom"> 
+
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let bedroom of bedrooms | Search: participant.bedroom" value={{bedroom._id}}>
+          {{bedroom.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field> 
+        
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>  Arrival </mat-card-title>  
+      <mat-form-field>
+          <input [(ngModel)] = "participant.arriaval_time" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" type="time" matInput placeholder="Time of arrival" name="arriaval_time">
+          <owl-date-time #dt2></owl-date-time>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="participant.arriaval_means_of_transport">
+        <mat-select [(ngModel)] = "participant.arriaval_means_of_transport" placeholder='Means of transport' name="arriaval_means_of_transport" >
+          <mat-option value="trainstation">Trainstation</mat-option>
+          <mat-option value="airport">Airport</mat-option>
+          <mat-option >others</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="!participant.arriaval_means_of_transport">
+        <mat-select [(ngModel)] = "participant.arriaval_means_of_transport" placeholder= "Means of transport" name="arriaval_means_of_transport" >
+          <mat-option value="trainstation">Trainstation</mat-option>
+          <mat-option value="airport">Airport</mat-option>
+          <mat-option >others</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.arriaval_flightnumber" type="text" matInput placeholder="Arrival flightnumber" name="arriaval_flightnumber">
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>  Departure </mat-card-title>  
+      <mat-form-field>
+            <input [(ngModel)] = "participant.departure_time" type="time" matInput placeholder="Time of departure" name="departure_time" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
+            <owl-date-time #dt3></owl-date-time>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="participant.departure_means_of_transport">
+        <mat-select [(ngModel)] = "participant.departure_means_of_transport" placeholder="Time of departure" name="departure_means_of_transport" >
+          <mat-option value="trainstation">Trainstation</mat-option>
+          <mat-option value="airport">Airport</mat-option>
+          <mat-option >others</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="!participant.departure_means_of_transport">
+        <mat-select [(ngModel)] = "participant.departure_means_of_transport" placeholder= "Means of transport" name="departure_means_of_transport" >
+          <mat-option value="trainstation">Trainstation</mat-option>
+          <mat-option value="airport">Airport</mat-option>
+          <mat-option >others</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.departure_flightnumber" type="text" matInput placeholder="Departure Flightnumber" name="departure_flightnumber">
+      </mat-form-field>
+
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>  Address </mat-card-title>  
+      <mat-form-field>
+        <input [(ngModel)] = "participant.address_street" type="text" matInput placeholder="Street" name="address_street">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.address_number" type="text" matInput placeholder="Number" name="address_number">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.address_city" type="text" matInput placeholder="City" name="address_city">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.address_zip_code" type="text" matInput placeholder="Zip-Code" name="address_zip_code">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.address_country" type="text" matInput placeholder="Country" name="address_country">
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>  Contacts </mat-card-title>  
+      <mat-form-field>
+        <input [(ngModel)] = "participant.telnr" type="number" matInput placeholder="Telefon" name="telnr">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "participant.email" type="email" matInput placeholder="E-Mail" name="email">
+      </mat-form-field>
+    </mat-card>
+
+  <mat-card>
+    <mat-card-title>  Finance </mat-card-title>  
+    <mat-form-field>
+      <input [(ngModel)] = "participant.fees" type="number" matInput placeholder="Seminar Fees" name="fees">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input [(ngModel)] = "participant.semiar_donation" type="number" matInput placeholder="Semiar Donation" name="semiar_donation">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input [(ngModel)] = "participant.monk_donation" type="number" matInput placeholder="Monk Donation" name="monk_donation">
+    </mat-form-field>
+  </mat-card>
+
+  <mat-card>
+
+    <mat-checkbox [(ngModel)] = "participant.tho_bo_tat_gioi" matInput name="tho_bo_tat_gioi" >Tho Bo Tat Gioi</mat-checkbox>
+
+    <mat-checkbox [(ngModel)] = "participant.tho_ngu_gioi" matInput name="tho_ngu_gioi">Tho Ngu Gioi</mat-checkbox>
+
+        <mat-checkbox [(ngModel)] = "participant.recieved_nametag" matInput name="recieved_nametag">did recieved Nametag</mat-checkbox>
+
+
+  </mat-card>
+
+		<button (click)="goBack()" class="btn">go back</button>
+		<button (click)="save()" class="btn btn-success">save</button>
+	</form>
+</div>
+
+</div>
