@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import {FormControl} from '@angular/forms';
 
 import { Participant } from '../classes/participant';
+import { Bedroom } from '../classes/bedroom';
 import { ParticipantService } from '../participant.service';
 
 @Component({
@@ -14,12 +16,15 @@ export class AddParticipantComponent implements OnInit {
 
   participants: Participant[];
   newParticipant : Participant;
+  
   genders = ["male", "female", "others"];
   workgroups = ["wg1", "wg2", "wg3"];
-  classes = [1,2,3,4, 'other'];
-  bedrooms: any;
+  classes = [1,2,3,4, 'none'];
+  bedrooms: Bedroom[];
   means_of_transports = ['plane', 'train', 'others'];
-
+  previous_seminars = ['first time', '1-2', 'multiple'];
+  
+  myControl: FormControl = new FormControl();
 
   constructor(
     private participantService: ParticipantService,
@@ -51,13 +56,26 @@ export class AddParticipantComponent implements OnInit {
   }
 
   addParticipant(): void{
-    console.log(this.newParticipant.bedroom);
+       this.newParticipant.bedroom = this.searchBedroomByName(this.newParticipant.bedroom, this.bedrooms);
+
+    if(this.newParticipant.birth_date){
+        var datearray = this.newParticipant.birth_date.split(".");
+        this.newParticipant.birth_date = datearray[1] + '/' + datearray[0] + '/' + datearray[2];
+     }
   	this.participantService.addParticipant(this.newParticipant)
       .subscribe(() => this.goBack());
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  searchBedroomByName(nameKey, myArray){
+    for (var i=0; i < myArray.length; i++) {
+        if (myArray[i].name === nameKey) {
+            return myArray[i];
+        }
+    }
   }
 
 }

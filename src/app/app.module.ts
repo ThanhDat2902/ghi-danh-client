@@ -4,6 +4,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http';
 
+import { LOCALE_ID } from '@angular/core';
+
 import { AppRoutingModule } from './/app-routing.module';
 import { MatToolbarModule, MatListModule, MatAutocompleteModule, MatCheckboxModule, MatSidenavModule, MatSelectModule, MatCardModule, MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -67,7 +69,7 @@ import { SpeedBedroomComponent } from './speed-bedroom/speed-bedroom.component';
 	providers: [    
 		MessageService,
 		ParticipantService,
-		BedroomService
+		BedroomService,
 	],
 	bootstrap: [AppComponent]
 })

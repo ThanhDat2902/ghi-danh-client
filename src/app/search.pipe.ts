@@ -9,9 +9,11 @@ export class SearchPipe implements PipeTransform {
     transform(value: Participant[], query: any, type: any): any {
 
         if(!value)return null;
-        if(!query)return value;
-
-        query = query.toLowerCase();
+        if(!query){
+            return value;
+        }else{
+            query = query.toLowerCase();
+        }
 
         switch (type) {
         	case "id":

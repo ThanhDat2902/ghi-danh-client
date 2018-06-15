@@ -5,12 +5,12 @@ export class Participant {
 	surname: string;
 	gender: string;
 	dharma_name: string;
-	birth_date: number;
+	birth_date: string;
 	previous_seminars: number[];
-	arriaval_time: number;
+	arriaval_time: string;
 	arriaval_means_of_transport: string;
 	arriaval_flightnumber: string;
-	departure_time: number;
+	departure_time: string;
 	departure_means_of_transport: string;
 	departure_flightnumber: string;
 	address_street: string;
