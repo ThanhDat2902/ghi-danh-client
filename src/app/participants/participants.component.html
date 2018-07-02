@@ -21,7 +21,7 @@
 <div class="container">
 	<mat-card>
 
-		<table class="participants table table-striped table-condensed">
+		<table class="participants table mat-table">
 			<thead>
 	        	<tr>
 	        		<th>ID</th>
@@ -30,7 +30,7 @@
 	            	<th>Dharma-Name</th>
 	            	<th>Class</th>
 	            	<th>Workgroup</th>
-
+	            	<th>Action</th>
 	        	</tr>
 	        <tbody>
 				<tr *ngFor="let participant of participants | Search: search : type" routerLink="/participant-detail/{{participant._id}}">

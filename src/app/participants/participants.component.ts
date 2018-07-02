@@ -15,6 +15,7 @@ export class ParticipantsComponent implements OnInit {
   newParticipant : Participant;
   bedrooms: string[];
   type = 'all';
+  search: string;
 
   constructor(private participantService: ParticipantService) { }
 
