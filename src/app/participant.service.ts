@@ -15,7 +15,8 @@ const httpOptions = {
 @Injectable()
 export class ParticipantService {
 
-  private URL = 'http://localhost:3000/api';  // URL to local api
+  //private URL = 'http://localhost:3000/api';  // URL to local api
+  private URL = 'http://192.168.2.106:3000/api'; 
   //private URL = 'https://ghi-danh-server.herokuapp.com/api';  // URL to web api
   
   constructor(
@@ -53,6 +54,33 @@ export class ParticipantService {
       tap(_ => this.log(`fetched participant id=${id}`)),
       catchError(this.handleError<Participant>(`getParticipant id=${id}`))
     );
+  }
+
+  getParticipantsCount():Observable<any> {
+
+    return this.http.get(`${this.URL}/participants/count/total`)
+      .pipe(
+        tap(data => this.log(`fetched classes`)),
+        catchError(this.handleError('getClasses', []))
+      );
+  }
+
+    getParticipantsCurrentCount():Observable<any> {
+
+    return this.http.get(`${this.URL}/participants/count/current`)
+      .pipe(
+        tap(data => this.log(`fetched classes`)),
+        catchError(this.handleError('getClasses', []))
+      );
+  }
+
+    getParticipantsCountNametag():Observable<any> {
+
+    return this.http.get(`${this.URL}/participants/count/nametag`)
+      .pipe(
+        tap(data => this.log(`fetched classes`)),
+        catchError(this.handleError('getClasses', []))
+      );
   }
 
   /* GET participant whose name contains search term */

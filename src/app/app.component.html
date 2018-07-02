@@ -1,10 +1,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
-<!--     	<img src="/assets/30KTu_Chon.jpg" href="#" height="420" width="420">  -->
-      <h4 class="navbar-brand" href="#">Ghi Danh</h4>
-    </div>
     <ul class="nav navbar-nav">
+      <li> <a routerLink="/dashboard"> Ghi Danh</a> </li>
       <li> <a routerLink="/participants">Participants</a> </li>
   	  <li> <a routerLink="/add-participant">add Participant</a> </li>
   	  <li> <a routerLink="/bedrooms">Bedrooms</a> </li>
@@ -12,8 +9,9 @@
     </ul>
   </div>
 </nav>
-
-<router-outlet></router-outlet>
+<div id="content-body">
+  <router-outlet></router-outlet>
+</div>
 
 <!-- <mat-sidenav-container class="example-container">
   <mat-sidenav mode="side" opened>  

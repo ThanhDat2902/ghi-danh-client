@@ -16,8 +16,8 @@
 		<mat-form-field>
 			<input type="text" placeholder="Pick one" [(ngModel)]="newParticipant.bedroom" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
 
-			<mat-autocomplete #auto="matAutocomplete">
-				<mat-option *ngFor="let bedroom of bedrooms | Search: newParticipant.bedroom" value={{bedroom._id}}>
+			<mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+				<mat-option *ngFor="let bedroom of bedrooms | Search: newParticipant.bedroom" value={{bedroom.name}}>
 					{{bedroom.name}}
 				</mat-option>
 			</mat-autocomplete>

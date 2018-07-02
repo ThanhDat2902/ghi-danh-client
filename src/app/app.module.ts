@@ -27,6 +27,7 @@ import { BedroomDetailsComponent } from './bedroom-details/bedroom-details.compo
 import { SearchPipe } from './search.pipe';
 import { ClassDetailComponent } from './class-detail/class-detail.component';
 import { SpeedBedroomComponent } from './speed-bedroom/speed-bedroom.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { SpeedBedroomComponent } from './speed-bedroom/speed-bedroom.component';
 		SearchPipe,
 		ClassDetailComponent,
 		SpeedBedroomComponent,
+		DashboardComponent,
 
 	],
 	imports: [

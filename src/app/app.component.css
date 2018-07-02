@@ -4,15 +4,11 @@ nav ul li a {
 	text-decoration: none;
 	margin: 0.3em;
 	display: inline-block;
-	color: #fff;
-	background-color: #015249;
 }
 nav ul li a :visited, a:link {
 }
 nav ul li a :hover {
-	background-color: #EEE;
 	cursor: pointer;
-	color: #015249;
 }
 nav ul li a .active {
 }
@@ -20,4 +16,3 @@ nav ul li a .active {
 mat-sidenav-container{
 	height: 100%;
 }
-

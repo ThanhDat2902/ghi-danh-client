@@ -10,11 +10,13 @@ import { AddBedroomComponent } from './add-bedroom/add-bedroom.component';
 import { BedroomDetailsComponent } from './bedroom-details/bedroom-details.component';
 import { ClassDetailComponent } from './class-detail/class-detail.component';
 import { SpeedBedroomComponent } from './speed-bedroom/speed-bedroom.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/participants', pathMatch: 'full' },
+	{ path: 'dashboard', component: DashboardComponent },
 	{ path: 'participants', component: ParticipantsComponent },
 	{ path: 'add-participant', component: AddParticipantComponent },
 	{ path: 'participant-detail/:id', component: ParticipantDetailsComponent },
