@@ -16,8 +16,8 @@ const httpOptions = {
 export class ParticipantService {
 
   //private URL = 'http://localhost:3000/api';  // URL to local api
-  private URL = 'http://192.168.2.106:3000/api'; 
-  //private URL = 'https://ghi-danh-server.herokuapp.com/api';  // URL to web api
+  //private URL = 'http://192.168.2.106:3000/api'; 
+  private URL = 'https://ghi-danh-server.herokuapp.com/api';  // URL to web api
   
   constructor(
     private http: HttpClient,
