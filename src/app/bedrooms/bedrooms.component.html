@@ -10,7 +10,7 @@
 
     <div class="flex-item" fxFlex *ngFor="let bedroom of bedrooms">
       <div *ngIf="bedroom.free_capacity>0; else full" (click)=onSelectBedroom(bedroom)>
-        <mat-card class="module">
+        <mat-card class="module free">
           <h4>{{bedroom.name}} <div>{{bedroom.count}}/{{bedroom.capacity}}</div> </h4>     
         </mat-card>
       </div>

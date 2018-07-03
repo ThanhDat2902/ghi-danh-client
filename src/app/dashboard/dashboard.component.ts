@@ -11,7 +11,13 @@ import { ParticipantService } from '../participant.service';
 export class DashboardComponent implements OnInit {
   participant_count: number;
   current_participant_count: number;
-  printed: number;
+  to_be_printed: number;
+  male_count: number;
+  child_count: number;
+  thieu_count: number;
+  ov_count: number;
+  countries: any;
+  female_count:number;
 
 
   constructor(private participantService: ParticipantService) { }
@@ -30,7 +36,25 @@ export class DashboardComponent implements OnInit {
     })
 
     this.participantService.getParticipantsCountNametag().subscribe(data => {
-      this.printed = data;
+      this.to_be_printed = this.participant_count-data;
+    })
+
+    this.participantService.getParticipantsCountMale().subscribe(data => {
+      this.male_count = data;
+      this.female_count = this.participant_count-this.male_count;
+    })
+
+    this.participantService.getParticipantsCountChild().subscribe(data => {
+      this.child_count = data;
+    })
+
+    this.participantService.getParticipantsCountOV().subscribe(data => {
+      this.ov_count = data;
+      this.thieu_count = this.child_count-data;
+    })
+
+    this.participantService.getParticipantsCountryCount().subscribe(data => {
+      this.countries = data;
     })
 
   }

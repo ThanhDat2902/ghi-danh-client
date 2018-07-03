@@ -1,7 +1,36 @@
 <h2>Bedroom {{selected_bedroom.name | uppercase}}</h2>
-<h4>House: {{selected_bedroom.house}}</h4>
-<h4>Free Capacity: {{selected_bedroom.free_capacity}}</h4>
-<h4>Current Count: {{selected_bedroom.count}}</h4>
+
+<div class="flex-container" 
+     fxLayout="row" 
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     fxLayoutAlign.xs="start">
+
+  	<div class="flex-item" fxFlex>
+	    <mat-card>
+			<h4>			
+				<mat-icon>home</mat-icon>
+				<div>House: {{selected_bedroom.house}}</div> 
+			</h4>
+		</mat-card>
+  	</div>
+ 	<div class="flex-item" fxFlex>
+	    <mat-card>
+			<h4>			
+				<mat-icon>add_location</mat-icon>
+				<div>Free Capacity: {{selected_bedroom.free_capacity}}</div> 
+			</h4>
+		</mat-card>
+  	</div>
+  	<div class="flex-item" fxFlex>
+		<mat-card>
+			<h4>			
+				<mat-icon>hotel</mat-icon>
+				<div>Current Count: {{selected_bedroom.count}}</div> 
+			</h4>     
+		</mat-card>
+  	</div>
+</div>
 
 <mat-card>
 	<table *ngIf='participants.length>0' class="table mat-table">

@@ -30,6 +30,10 @@ a {
   cursor: pointer;
 }
 
+.free{
+  background-color:#43A047;
+}
+
 @media (max-width: 600px) {
   .module {
     font-size: 10px;

@@ -74,9 +74,46 @@ export class ParticipantService {
       );
   }
 
-    getParticipantsCountNametag():Observable<any> {
+  getParticipantsCountNametag():Observable<any> {
 
     return this.http.get(`${this.URL}/participants/count/nametag`)
+      .pipe(
+        tap(data => this.log(`fetched classes`)),
+        catchError(this.handleError('getClasses', []))
+      );
+  }
+
+  getParticipantsCountMale():Observable<any> {
+
+    return this.http.get(`${this.URL}/participants/count/male`)
+      .pipe(
+        tap(data => this.log(`fetched classes`)),
+        catchError(this.handleError('getClasses', []))
+      );
+  }
+
+  getParticipantsCountChild():Observable<any> {
+
+    return this.http.get(`${this.URL}/participants/count/child`)
+      .pipe(
+        tap(data => this.log(`fetched classes`)),
+        catchError(this.handleError('getClasses', []))
+      );
+  }
+
+  getParticipantsCountryCount():Observable<any> {
+
+    return this.http.get(`${this.URL}/participants/count/country`)
+      .pipe(
+        tap(data => this.log(`fetched classes`)),
+        catchError(this.handleError('getClasses', []))
+      );
+  }
+
+
+  getParticipantsCountOV():Observable<any> {
+
+    return this.http.get(`${this.URL}/participants/count/ov`)
       .pipe(
         tap(data => this.log(`fetched classes`)),
         catchError(this.handleError('getClasses', []))
