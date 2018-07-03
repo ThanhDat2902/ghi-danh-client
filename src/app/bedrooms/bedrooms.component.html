@@ -2,21 +2,22 @@
 
 <h2>Bedrooms</h2>
 
-<div class="grid grid-pad">
-  <a *ngFor="let bedroom of bedrooms" class="col-sm-2">
-    <!-- <div *ngIf="bedroom.count>0; else full" routerLink="/bedroom-detail/{{bedroom._id}}"> -->
+<div class="flex-container" 
+     fxLayout="row" 
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     fxLayoutAlign.xs="start">
+
+    <div class="flex-item" fxFlex *ngFor="let bedroom of bedrooms">
       <div *ngIf="bedroom.free_capacity>0; else full" (click)=onSelectBedroom(bedroom)>
-      <div class="module">
-        <h4>{{bedroom.name}} <div>{{bedroom.count}}/{{bedroom.capacity}}</div> </h4>     
+        <mat-card class="module">
+          <h4>{{bedroom.name}} <div>{{bedroom.count}}/{{bedroom.capacity}}</div> </h4>     
+        </mat-card>
       </div>
-    </div>
-    <ng-template #full>
-      <!-- <div class="full module" routerLink="/bedroom-detail/{{bedroom._id}}"> -->
-        <div class="full module" (click)=onSelectBedroom(bedroom)>
-            <h4>{{bedroom.name}} <div>full</div> </h4>     
-      </div>
-    </ng-template>
-  </a>
+      <ng-template #full>
+        <!-- <div class="full module" routerLink="/bedroom-detail/{{bedroom._id}}"> -->
+          <mat-card class="full module" (click)=onSelectBedroom(bedroom)>
+              <h4>{{bedroom.name}} <div>full</div> </h4>     
+        </mat-card>
+      </ng-template>
 </div>
-
-

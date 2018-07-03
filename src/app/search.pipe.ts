@@ -20,10 +20,6 @@ export class SearchPipe implements PipeTransform {
         		return value.filter(function(item){
 	        		return item.participant_id.toString().includes(query);
 	        	});
-            case "nametag":
-                return value.filter(function(item){
-                    return item.recieved_nametag.toString().toLowerCase().includes(query);
-                });
         	
         	default:
 				return value.filter(function(item){

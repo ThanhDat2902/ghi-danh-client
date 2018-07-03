@@ -1,19 +1,37 @@
-<mat-toolbar>
-    <ul class="nav navbar-nav">
-      <li> <a routerLink="/dashboard"> Ghi Danh</a> </li>
-      <li> <a routerLink="/participants">Participants</a> </li>
-      <li> <a routerLink="/add-participant">add Participant</a> </li>
-      <li> <a routerLink="/bedrooms">Bedrooms</a> </li>
-      <li> <a routerLink="/speed">Quick Add</a> </li>
-    </ul>
-</mat-toolbar>
+<!-- <mat-toolbar>
+		<ul class="nav navbar-nav">
+			<li> <a routerLink="/dashboard"> Ghi Danh</a> </li>
+			<li> <a routerLink="/participants">Participants</a> </li>
+			<li> <a routerLink="/add-participant">add Participant</a> </li>
+			<li> <a routerLink="/bedrooms">Bedrooms</a> </li>
+			<li> <a routerLink="/speed">Quick Add</a> </li>
+		</ul>
+	</mat-toolbar> -->
 
-<div id="content-body">
-  <router-outlet></router-outlet>
-</div>
+	<mat-toolbar>
+		<button mat-button color="primary" routerLink="/dashboard">
+			<mat-icon>insert_chart_outlined</mat-icon>Ghi Danh
+		</button> 
+		<button mat-button color="primary" routerLink="/participants">
+			<mat-icon>group</mat-icon>Participants
+		</button> 
+		<button mat-button color="primary" routerLink="/add-participant">
+			<mat-icon>add</mat-icon>add Participant
+		</button> 
+		<button mat-button color="primary" routerLink="/bedrooms">
+			<mat-icon>hotel</mat-icon>Bedrooms
+		</button> 
+		<button mat-button color="primary" routerLink="/speed">
+			<mat-icon>add</mat-icon>Quick Add
+		</button> 
+	</mat-toolbar>
+
+	<div id="content-body">
+		<router-outlet></router-outlet>
+	</div>
 
 <!-- <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened>  
+	<mat-sidenav mode="side" opened>  
 		<mat-nav-list>
 			<mat-list-item routerLink="/participants">Participants </mat-list-item>
 			<mat-list-item routerLink="/add-participant">add Participant </mat-list-item>
@@ -21,7 +39,7 @@
 		</mat-nav-list>
 	</mat-sidenav>
 		<mat-sidenav-content>
-  		<router-outlet></router-outlet>
+			<router-outlet></router-outlet>
 		<app-messages></app-messages>
 	</mat-sidenav-content>
 </mat-sidenav-container> -->

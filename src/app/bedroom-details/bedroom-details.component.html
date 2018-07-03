@@ -3,24 +3,26 @@
 <h4>Free Capacity: {{selected_bedroom.free_capacity}}</h4>
 <h4>Current Count: {{selected_bedroom.count}}</h4>
 
-<table *ngIf='participants.length>0' class="table mat-table">
-	<thead>
-    	<tr>
-    		<th>ID</th>
-        	<th>Name</th>
-        	<th>Surname</th>
-        	<th>Dharma-Name</th>
-        	<th>Class</th>
-        	<th>Workgroup</th>
+<mat-card>
+	<table *ngIf='participants.length>0' class="table mat-table">
+		<thead>
+	    	<tr>
+	    		<th>ID</th>
+	        	<th>Name</th>
+	        	<th>Surname</th>
+	        	<th>Dharma-Name</th>
+	        	<th>Class</th>
+	        	<th>Workgroup</th>
 
-    	</tr>
-    <tbody>
-		<tr *ngFor="let participant of participants" routerLink="/participant-detail/{{participant._id}}">
-			<td>{{participant.participant_id}}</td>
-			<td>{{participant.name}}</td>
-			<td>{{participant.surname}}</td>
-			<td>{{participant.dharma_name}}</td>
-			<td>{{participant.class}}</td>
-			<td>{{participant.workgroup}}</td>
-	</tbody>
-</table>
+	    	</tr>
+	    <tbody>
+			<tr *ngFor="let participant of participants" routerLink="/participant-detail/{{participant._id}}">
+				<td>{{participant.participant_id}}</td>
+				<td>{{participant.name}}</td>
+				<td>{{participant.surname}}</td>
+				<td>{{participant.dharma_name}}</td>
+				<td>{{participant.class}}</td>
+				<td>{{participant.workgroup}}</td>
+		</tbody>
+	</table>
+</mat-card>

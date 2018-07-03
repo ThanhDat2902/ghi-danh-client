@@ -11,9 +11,12 @@
 		  <mat-select [(ngModel)] = "type" placeholder="type" >
 		    <mat-option value="all">All</mat-option>
 		    <mat-option value="id">Id</mat-option>
-		    <mat-option value="nametag">Nametag</mat-option>
 		  </mat-select>
 		</mat-form-field>
+
+		<button mat-fab color="primary" class="pull-right" routerLink="/add-participant">
+			<mat-icon>add</mat-icon>
+		</button>
 
 	</mat-card>
 </div>
@@ -41,8 +44,15 @@
 					<td>{{participant.class}}</td>
 					<td>{{participant.workgroup}}</td>
 
-					<td><button class="btn btn-danger pull-right" title="delete participant"
-					(click)="delete(participant)">x</button></td>
+					<td>
+							<button mat-icon-button color="primary" routerLink="/participant-detail/{{participant._id}}" title="delete participant">
+								<mat-icon>create</mat-icon>
+							</button>
+  							<button mat-icon-button color="warn" (click)="delete(participant)" title="delete participant">
+								<mat-icon>delete_forever</mat-icon>
+							</button>
+					</td>
+
 				</tr>
 			</tbody>
 		</table>

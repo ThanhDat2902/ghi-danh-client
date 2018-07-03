@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import "/assets/bootstrap-3.3.7-dist/css/bootstrap.min.css";
+@import "/assets/bootstrap-3.3.7-dist/css/bootstrap.min.css"; 
+
 @import "~ng-pick-datetime/assets/style/picker.min.css";
 
-@import '~@angular/material/prebuilt-themes/purple-green.css';
-
+/*@import '~@angular/material/prebuilt-themes/purple-green.css';
+*/
 
 body{
 	height: 100%;
@@ -13,7 +14,7 @@ html{
 	height: 100%;
 }
 mat-card{
-	margin-bottom: 1em;
+	margin: 1em;
 }
 
 /*

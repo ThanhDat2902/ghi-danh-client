@@ -11,7 +11,7 @@ import { ParticipantService } from '../participant.service';
 export class DashboardComponent implements OnInit {
   participant_count: number;
   current_participant_count: number;
-  to_print: number;
+  printed: number;
 
 
   constructor(private participantService: ParticipantService) { }
@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     })
 
     this.participantService.getParticipantsCountNametag().subscribe(data => {
-      this.to_print = data;
+      this.printed = data;
     })
 
   }

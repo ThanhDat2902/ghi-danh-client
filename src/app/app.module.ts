@@ -7,9 +7,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './/app-routing.module';
-import { MatToolbarModule, MatListModule, MatAutocompleteModule, MatCheckboxModule, MatSidenavModule, MatSelectModule, MatCardModule, MatInputModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import { MatToolbarModule, 
+			MatListModule,
+			MatAutocompleteModule,
+			MatCheckboxModule,
+			MatSidenavModule,
+			MatSelectModule,
+			MatCardModule,
+			MatInputModule,
+			MatFormFieldModule,
+			MatDatepickerModule,
+			MatButtonModule,
+			MatIconModule,
+			MatGridListModule,
+			MatNativeDateModule} from '@angular/material';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -48,19 +63,23 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 	],
 	imports: [
 		BrowserModule,
+		FlexLayoutModule,
 		FormsModule,
 		ReactiveFormsModule,
 		AppRoutingModule,
 		HttpClientModule,
 		MatDatepickerModule,
 		MatFormFieldModule,
+		MatGridListModule,
 		MatNativeDateModule,
 		MatInputModule,
 		MatAutocompleteModule,
+		MatButtonModule,
 		OwlDateTimeModule, 
 		OwlNativeDateTimeModule,
 		BrowserAnimationsModule,
 		MatCheckboxModule,
+		MatIconModule,
 		MatCardModule,
 		MatSelectModule,
 		MatSidenavModule,
