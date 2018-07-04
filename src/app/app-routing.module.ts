@@ -15,7 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/participants', pathMatch: 'full' },
+	{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 	{ path: 'dashboard', component: DashboardComponent },
 	{ path: 'participants', component: ParticipantsComponent },
 	{ path: 'add-participant', component: AddParticipantComponent },

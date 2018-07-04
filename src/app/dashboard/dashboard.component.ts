@@ -12,11 +12,12 @@ export class DashboardComponent implements OnInit {
   participant_count: number;
   current_participant_count: number;
   to_be_printed: number;
+  printed: number;
   male_count: number;
   child_count: number;
   thieu_count: number;
   ov_count: number;
-  countries: any;
+  countries: any[];
   female_count:number;
 
 
@@ -29,6 +30,7 @@ export class DashboardComponent implements OnInit {
   getData(): void {
     this.participantService.getParticipantsCount().subscribe(data => {
       this.participant_count = data;
+      this.to_be_printed = data-this.printed;
     })
 
     this.participantService.getParticipantsCurrentCount().subscribe(data => {
@@ -36,6 +38,7 @@ export class DashboardComponent implements OnInit {
     })
 
     this.participantService.getParticipantsCountNametag().subscribe(data => {
+      this.printed = data;
       this.to_be_printed = this.participant_count-data;
     })
 
@@ -46,6 +49,7 @@ export class DashboardComponent implements OnInit {
 
     this.participantService.getParticipantsCountChild().subscribe(data => {
       this.child_count = data;
+      this.thieu_count = data-this.ov_count;
     })
 
     this.participantService.getParticipantsCountOV().subscribe(data => {

@@ -43,6 +43,7 @@
 
 	  	this.participantService.addParticipant(this.newParticipant)
 	      .subscribe(() => this.goBack());
+
 	  }
 
 	  searchBedroomByName(nameKey, myArray){

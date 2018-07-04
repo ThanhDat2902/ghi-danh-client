@@ -3,21 +3,20 @@
 <h2>Bedrooms</h2>
 
 <div class="flex-container" 
-     fxLayout="row" 
-     fxLayout.xs="column"
-     fxLayoutAlign="center center"
-     fxLayoutAlign.xs="start">
+fxLayout="row" 
+fxLayout.xs="column"
+fxLayoutAlign="center center"
+fxLayoutAlign.xs="start">
 
-    <div class="flex-item" fxFlex *ngFor="let bedroom of bedrooms">
-      <div *ngIf="bedroom.free_capacity>0; else full" (click)=onSelectBedroom(bedroom)>
-        <mat-card class="module free">
-          <h4>{{bedroom.name}} <div>{{bedroom.count}}/{{bedroom.capacity}}</div> </h4>     
-        </mat-card>
-      </div>
-      <ng-template #full>
-        <!-- <div class="full module" routerLink="/bedroom-detail/{{bedroom._id}}"> -->
-          <mat-card class="full module" (click)=onSelectBedroom(bedroom)>
-              <h4>{{bedroom.name}} <div>full</div> </h4>     
-        </mat-card>
-      </ng-template>
+<div class="flex-item" fxFlex *ngFor="let bedroom of bedrooms">
+  <div *ngIf="bedroom.free_capacity>0; else full" (click)=onSelectBedroom(bedroom)>
+    <mat-card class="module free">
+      <h4>{{bedroom.name}} <div>{{bedroom.count}}/{{bedroom.capacity}}</div> </h4>     
+    </mat-card>
+  </div>
+  <ng-template #full>
+    <mat-card class="full module" (click)=onSelectBedroom(bedroom)>
+      <h4>{{bedroom.name}} <div>full</div> </h4>     
+    </mat-card>
+  </ng-template>
 </div>
