@@ -22,6 +22,7 @@ export class ParticipantDetailsComponent implements OnInit {
     classes = [1,2,3,4, 'none'];
     means_of_transports = ['plane', 'train', 'others'];
     previous_seminars = ['first time', '1-2', 'multiple'];
+    countries = ["Germany", "Albania","Andorra", "Armenia","Austria","Azerbaijan","Belarus","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Georgia","Germany","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Macedonia","Malta","Moldova","Monaco","Montenegro","Netherlands","Norway","Poland","Portugal","Romania","Russia","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Turkey","Ukraine","United Kingdom","Vietnam"];
 
 
     constructor(

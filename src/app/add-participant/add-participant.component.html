@@ -96,8 +96,18 @@
         <input [(ngModel)] = "newParticipant.address_zip_code" type="text" matInput placeholder="Zip-Code" name="address_zip_code">
       </mat-form-field>
 
-      <mat-form-field>
+<!--       <mat-form-field>
         <input [(ngModel)] = "newParticipant.address_country" type="text" matInput placeholder="Country" name="address_country">
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <input type="text" placeholder="Country" [(ngModel)]="newParticipant.address_country" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto_country" name="Country"> 
+
+        <mat-autocomplete #auto_country="matAutocomplete" autoActiveFirstOption>
+          <mat-option *ngFor="let item of countries | Search: newParticipant.address_country" value="{{item}}">
+            {{item}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
     </mat-card>
 

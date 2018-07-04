@@ -5,6 +5,7 @@ export class Participant {
 	surname: string;
 	gender: string;
 	dharma_name: string;
+	age: number;
 	birth_date: string;
 	previous_seminars: number[];
 	arriaval_time: string;

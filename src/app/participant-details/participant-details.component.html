@@ -95,7 +95,7 @@
         <mat-card-title>  Arrival </mat-card-title>  
         <mat-form-field>
             <input [(ngModel)] = "participant.arriaval_time" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" matInput placeholder="Time of arrival" name="arriaval_time">
-            <owl-date-time #dt2></owl-date-time>
+            <owl-date-time [pickerMode]="'dialog'"  #dt2></owl-date-time>
         </mat-form-field>
 
         <mat-form-field>
@@ -117,7 +117,7 @@
         <mat-card-title>  Departure </mat-card-title>  
         <mat-form-field>
               <input [(ngModel)] = "participant.departure_time" matInput placeholder="Time of departure" name="departure_time" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
-              <owl-date-time #dt3></owl-date-time>
+              <owl-date-time [pickerMode]="'dialog'"  #dt3></owl-date-time>
         </mat-form-field>
 
          <mat-form-field>
@@ -154,9 +154,20 @@
           <input [(ngModel)] = "participant.address_zip_code" type="text" matInput placeholder="Zip-Code" name="address_zip_code">
         </mat-form-field>
 
-        <mat-form-field>
+<!--         <mat-form-field>
           <input [(ngModel)] = "participant.address_country" type="text" matInput placeholder="Country" name="address_country">
-        </mat-form-field>
+        </mat-form-field> -->
+
+        <mat-form-field>
+        <input type="text" placeholder="Country" [(ngModel)]="participant.address_country" aria-label="Number" matInput [matAutocomplete]="auto_country" name="Country"> 
+
+        <mat-autocomplete #auto_country="matAutocomplete" autoActiveFirstOption>
+          <mat-option *ngFor="let item of countries | Search: participant.address_country" value="{{item}}">
+            {{item}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
       </mat-card>
 
       <mat-card>
