@@ -33,7 +33,6 @@
 	            	<th>Dharma-Name</th>
 	            	<th>Class</th>
 	            	<th>Workgroup</th>
-	            	<th>Action</th>
 	        	</tr>
 	        <tbody>
 				<tr *ngFor="let participant of participants | Search: search : type" routerLink="/participant-detail/{{participant._id}}">
@@ -43,16 +42,6 @@
 					<td>{{participant.dharma_name}}</td>
 					<td>{{participant.class}}</td>
 					<td>{{participant.workgroup}}</td>
-
-					<td>
-							<button mat-icon-button color="primary" routerLink="/participant-detail/{{participant._id}}" title="delete participant">
-								<mat-icon>create</mat-icon>
-							</button>
-  							<button mat-icon-button color="warn" (click)="delete(participant)" title="delete participant">
-								<mat-icon>delete_forever</mat-icon>
-							</button>
-					</td>
-
 				</tr>
 			</tbody>
 		</table>

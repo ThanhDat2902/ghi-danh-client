@@ -5,7 +5,7 @@
 
   	<form>
   		<mat-card>
-        <mat-card-title>  General Informations </mat-card-title>  
+        <mat-card-title>  General Information </mat-card-title>  
 
         <mat-form-field>
           <input [(ngModel)] = "participant.participant_id" matInput placeholder="ID" type="number" name="participant_id" required>
@@ -206,9 +206,12 @@
 
 
     </mat-card>
+    <mat-card>
+      <button (click)="goBack()" mat-raised-button>go back</button>
+      <button (click)="save()" mat-raised-button color="primary" >save</button>
+      <button (click)="delete()" mat-button class="pull-right"><mat-icon>delete_forever</mat-icon></button>
+    </mat-card>
 
-  		<button (click)="goBack()" mat-raised-button>go back</button>
-  		<button (click)="save()" mat-raised-button color="primary" >save</button>
   	</form>
   </div>
 

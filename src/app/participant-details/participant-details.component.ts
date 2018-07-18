@@ -68,6 +68,10 @@ export class ParticipantDetailsComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
 
+  delete(): void {
+    this.participantService.deleteParticipant(this.participant).subscribe(() => this.goBack());;
+  }
+
   searchBedroomByName(nameKey, myArray){
     for (var i=0; i < myArray.length; i++) {
         if (myArray[i].name === nameKey) {

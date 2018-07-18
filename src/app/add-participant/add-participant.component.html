@@ -3,7 +3,7 @@
   <div class="container" >
     
     <mat-card>
-      <mat-card-title>  General Informations </mat-card-title>  
+      <mat-card-title>  General Information </mat-card-title>  
       <mat-form-field>
         <input [(ngModel)] = "newParticipant.participant_id" matInput placeholder="ID" type="number" name="ID" required>
       </mat-form-field>
@@ -33,13 +33,92 @@
       <mat-form-field>
         <input [(ngModel)] = "newParticipant.birth_date" matInput placeholder="Birthdate" name="birth_date">
       </mat-form-field>
-   </mat-card>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>  Seminar Organisation </mat-card-title> 
+
+      <mat-form-field>
+        <input type="text" placeholder="Previous Seminars" [(ngModel)]="newParticipant.previous_seminars" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto_previous_seminars" name="previous_seminars"> 
+
+        <mat-autocomplete #auto_previous_seminars="matAutocomplete" autoActiveFirstOption>
+          <mat-option *ngFor="let item of previous_seminars | Search: newParticipant.previous_seminars" value="{{item}}">
+            {{item}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" placeholder="Class" [(ngModel)]="newParticipant.class" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto_class" name="class"> 
+
+        <mat-autocomplete #auto_class="matAutocomplete" autoActiveFirstOption>
+          <mat-option *ngFor="let item of classes | Search: newParticipant.class" value="{{item}}">
+            {{item}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" placeholder="Workgroup" [(ngModel)]="newParticipant.workgroup" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto_workgroup" name="workgroup"> 
+
+        <mat-autocomplete #auto_workgroup="matAutocomplete" autoActiveFirstOption>
+          <mat-option *ngFor="let item of workgroups | Search: newParticipant.workgroup" value="{{item}}">
+            {{item}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" placeholder="Bedroom" [(ngModel)]="newParticipant.bedroom" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" name="bedroom"> 
+
+        <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+          <mat-option *ngFor="let bedroom of bedrooms | Search: newParticipant.bedroom" value={{bedroom.name}}>
+            {{bedroom.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field> 
+    </mat-card>
+
+    <mat-card>
+
+      <mat-checkbox [(ngModel)] = "newParticipant.tho_bo_tat_gioi" value='false' matInput name="tho_bo_tat_gioi">Tho Bo Tat Gioi</mat-checkbox>
+
+      <mat-checkbox [(ngModel)] = "newParticipant.tho_ngu_gioi" value='false' matInput name="tho_bo_tat_gioi">Tho Ngu Gioi</mat-checkbox>
+
+    </mat-card>
+
+
+    <mat-card>
+      <mat-card-title>  Contacts </mat-card-title>  
+      <mat-form-field>
+        <input [(ngModel)] = "newParticipant.telnr" type="number" matInput placeholder="Telefon" name="telnr">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "newParticipant.email" type="email" matInput placeholder="E-Mail" name="email">
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>  Finance </mat-card-title>  
+      <mat-form-field>
+        <input [(ngModel)] = "newParticipant.fees" type="number" matInput placeholder="Seminar Fees" name="fees">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "newParticipant.semiar_donation" type="number" matInput placeholder="Semiar Donation" name="semiar_donation">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)] = "newParticipant.monk_donation" type="number" matInput placeholder="Monk Donation" name="monk_donation">
+      </mat-form-field>
+    </mat-card>
 
     <mat-card>
       <mat-card-title>  Arrival </mat-card-title>  
       <mat-form-field>
-          <input [(ngModel)] = "newParticipant.arriaval_time" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" type="time" matInput placeholder="Time of arrival" name="arriaval_time">
-          <owl-date-time [pickerMode]="'dialog'" #dt2></owl-date-time>
+        <input [(ngModel)] = "newParticipant.arriaval_time" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" type="time" matInput placeholder="Time of arrival" name="arriaval_time">
+        <owl-date-time [pickerMode]="'dialog'" #dt2></owl-date-time>
       </mat-form-field>
 
       <mat-form-field>
@@ -60,8 +139,8 @@
     <mat-card>
       <mat-card-title>  Departure </mat-card-title>  
       <mat-form-field>
-            <input [(ngModel)] = "newParticipant.departure_time" type="time" matInput placeholder="Time of departure" name="departure_time" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
-            <owl-date-time [pickerMode]="'dialog'" #dt3></owl-date-time>
+        <input [(ngModel)] = "newParticipant.departure_time" type="time" matInput placeholder="Time of departure" name="departure_time" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
+        <owl-date-time [pickerMode]="'dialog'" #dt3></owl-date-time>
       </mat-form-field>
 
       <mat-form-field>
@@ -111,84 +190,8 @@
       </mat-form-field>
     </mat-card>
 
-    <mat-card>
-      <mat-card-title>  Contacts </mat-card-title>  
-      <mat-form-field>
-        <input [(ngModel)] = "newParticipant.telnr" type="number" matInput placeholder="Telefon" name="telnr">
-      </mat-form-field>
 
-      <mat-form-field>
-        <input [(ngModel)] = "newParticipant.email" type="email" matInput placeholder="E-Mail" name="email">
-      </mat-form-field>
-    </mat-card>
-
-  <mat-card>
-      <mat-card-title>  Seminar Organisation </mat-card-title> 
-
-      <mat-form-field>
-        <input type="text" placeholder="Previous Seminars" [(ngModel)]="newParticipant.previous_seminars" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto_previous_seminars" name="previous_seminars"> 
-
-        <mat-autocomplete #auto_previous_seminars="matAutocomplete" autoActiveFirstOption>
-          <mat-option *ngFor="let item of previous_seminars | Search: newParticipant.previous_seminars" value="{{item}}">
-            {{item}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input type="text" placeholder="Class" [(ngModel)]="newParticipant.class" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto_class" name="class"> 
-
-        <mat-autocomplete #auto_class="matAutocomplete" autoActiveFirstOption>
-          <mat-option *ngFor="let item of classes | Search: newParticipant.class" value="{{item}}">
-            {{item}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input type="text" placeholder="Workgroup" [(ngModel)]="newParticipant.workgroup" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto_workgroup" name="workgroup"> 
-
-        <mat-autocomplete #auto_workgroup="matAutocomplete" autoActiveFirstOption>
-          <mat-option *ngFor="let item of workgroups | Search: newParticipant.workgroup" value="{{item}}">
-            {{item}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input type="text" placeholder="Bedroom" [(ngModel)]="newParticipant.bedroom" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" name="bedroom"> 
-
-        <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
-          <mat-option *ngFor="let bedroom of bedrooms | Search: newParticipant.bedroom" value={{bedroom.name}}>
-            {{bedroom.name}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field> 
-  </mat-card>
-
-
-    <mat-card>
-      <mat-card-title>  Finance </mat-card-title>  
-      <mat-form-field>
-        <input [(ngModel)] = "newParticipant.fees" type="number" matInput placeholder="Seminar Fees" name="fees">
-      </mat-form-field>
-
-      <mat-form-field>
-        <input [(ngModel)] = "newParticipant.semiar_donation" type="number" matInput placeholder="Semiar Donation" name="semiar_donation">
-      </mat-form-field>
-
-      <mat-form-field>
-        <input [(ngModel)] = "newParticipant.monk_donation" type="number" matInput placeholder="Monk Donation" name="monk_donation">
-      </mat-form-field>
-    </mat-card>
-
-    <mat-card>
-
-      <mat-checkbox [(ngModel)] = "newParticipant.tho_bo_tat_gioi" value='false' matInput name="tho_bo_tat_gioi">Tho Bo Tat Gioi</mat-checkbox>
-
-      <mat-checkbox [(ngModel)] = "newParticipant.tho_ngu_gioi" value='false' matInput name="tho_bo_tat_gioi">Tho Ngu Gioi</mat-checkbox>
-
-    </mat-card>
+    
 
     <mat-card>
 
@@ -196,5 +199,5 @@
 
     </mat-card>
 
-      <button type="submit" mat-raised-button color="primary" (click)="addParticipant();" >Submit</button>
+    <button type="submit" mat-raised-button color="primary" (click)="addParticipant();" >Submit</button>
   </div>
