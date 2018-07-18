@@ -16,6 +16,9 @@ export class BedroomsComponent implements OnInit {
   selected_bedroom: Bedroom;
   bedroomCount: any;
   participants: Participant[];
+  total_count = 0;
+  total_space = 0;
+  load = 0;
 
 	constructor(private bedroomService: BedroomService) { }
 
@@ -33,15 +36,15 @@ export class BedroomsComponent implements OnInit {
 
 	getCount(rooms: Bedroom[]): void{
 		if(rooms){
-			console.log('not null');
 			for (let e of rooms) {
 				this.bedroomService.getOneBedroom(e._id).subscribe(listOfSleeper => {
 					e.free_capacity = e.capacity-listOfSleeper.data.length;
 					e.count = listOfSleeper.data.length;
+          this.total_count = this.total_count + listOfSleeper.data.length;
+          this.total_space = this.total_space + e.capacity;
+          this.load = this.total_count/this.total_space*100;
 				});
 			}
-		}else{
-			console.log('null');
 		}
 	}
 

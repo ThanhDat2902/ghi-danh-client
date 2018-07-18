@@ -1,6 +1,17 @@
 <app-bedroom-details *ngIf=selected_bedroom [selected_bedroom]='selected_bedroom' [participants]='participants'></app-bedroom-details>
 
 <h2>Bedrooms</h2>
+<mat-card>
+
+  <h4>Occupied Beds: {{total_count}} <div class="pull-right"> Total Capacity: {{total_space}} </div></h4>  
+
+      <mat-progress-bar
+          class="example-margin"
+          [color]='primary'
+          [mode]='determinate'
+          [value]="load">
+      </mat-progress-bar>
+</mat-card>
 
 <div class="flex-container" 
 fxLayout="row" 

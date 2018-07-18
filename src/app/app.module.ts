@@ -20,6 +20,7 @@ import { MatToolbarModule,
 			MatButtonModule,
 			MatIconModule,
 			MatGridListModule,
+			MatProgressBarModule,
 			MatNativeDateModule} from '@angular/material';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -75,6 +76,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 		MatInputModule,
 		MatAutocompleteModule,
 		MatButtonModule,
+		MatProgressBarModule,
 		OwlDateTimeModule, 
 		OwlNativeDateTimeModule,
 		BrowserAnimationsModule,

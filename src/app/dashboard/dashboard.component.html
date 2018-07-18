@@ -1,110 +1,138 @@
 <h2>Actions</h2>
 
-
 <div class="flex-container" 
-     fxLayout="row" 
-     fxLayout.xs="column"
-     fxLayoutAlign="center center"
-     fxLayoutAlign.xs="start">
+fxLayout="row" 
+fxLayout.xs="column"
+fxLayoutAlign="center center"
+fxLayoutAlign.xs="start">
 
-  	<div class="flex-item" fxFlex>
-	    <mat-card routerLink="/speed">
-			<h4>			
-				<mat-icon>add_circle_outline</mat-icon>
-				<div>Quick Add</div> 
-			</h4>
-		</mat-card>
-  	</div>
- 	<div class="flex-item" fxFlex>
-	    <mat-card routerLink="/bedrooms">
-			<h4>			
-				<mat-icon>hotel</mat-icon>
-				<div>Bedrooms</div> 
-			</h4>
-		</mat-card>
-  	</div>
- 	<div class="flex-item" fxFlex>
-	    <mat-card routerLink="/participants">
-			<h4>			
-				<mat-icon>group</mat-icon>
-				<div>Participants</div> 
-			</h4>
-		</mat-card>
-  	</div>
+<div class="flex-item" fxFlex>
+ <mat-card routerLink="/speed">
+   <h4>			
+    <mat-icon>add_circle_outline</mat-icon>
+    <div>Quick Add</div> 
+  </h4>
+</mat-card>
+</div>
+<div class="flex-item" fxFlex>
+ <mat-card routerLink="/bedrooms">
+   <h4>			
+    <mat-icon>hotel</mat-icon>
+    <div>Bedrooms</div> 
+  </h4>
+</mat-card>
+</div>
+<div class="flex-item" fxFlex>
+ <mat-card routerLink="/participants">
+   <h4>			
+    <mat-icon>group</mat-icon>
+    <div>Participants</div> 
+  </h4>
+</mat-card>
+</div>
 
 </div>
 
 <h2>Statistics</h2>
 
 <div class="flex-container" 
-     fxLayout="row" 
-     fxLayout.xs="column"
-     fxLayoutAlign="center center"
-     fxLayoutAlign.xs="start">
+fxLayout="row" 
+fxLayout.xs="column"
+fxLayoutAlign="center center"
+fxLayoutAlign.xs="start">
 
-  	<div class="flex-item" fxFlex>
-	    <mat-card>
-			<h4>			
-				<mat-icon>group</mat-icon>
-				<div>Registed: {{participant_count}}</div> 
-			</h4>
-		</mat-card>
-  	</div>
- 	<div class="flex-item" fxFlex>
-	    <mat-card>
-			<h4>			
-				<mat-icon>how_to_reg</mat-icon>
-				<div>Current: {{current_participant_count}}</div> 
-			</h4>
-		</mat-card>
-  	</div>
-  	<div class="flex-item" fxFlex>
-		<mat-card>
-			<h4>			
-				<mat-icon>assignment_ind</mat-icon>
-				<div>Open Nametags: {{to_be_printed}}</div> 
-			</h4>     
-		</mat-card>
-  	</div>
-  	<div class="flex-item" fxFlex>
-		<mat-card>
-			<h4>			
-				<mat-icon>wc</mat-icon>
-				<div>female: {{female_count}} male: {{male_count}}</div> 
-			</h4>     
-		</mat-card>
-  	</div>
-  	<div class="flex-item" fxFlex>
-		<mat-card>
-			<h4>			
-				<mat-icon>videogame_asset</mat-icon>
-				<div>Teenager: {{thieu_count}}</div> 
-			</h4>     
-		</mat-card>
-  	</div>
-  	<div class="flex-item" fxFlex>
-		<mat-card>
-			<h4>			
-				<mat-icon>child_friendly</mat-icon>
-				<div>Child: {{ov_count}}</div> 
-			</h4>     
-		</mat-card>
-  	</div>
+<div class="flex-item" fxFlex>
+ <a href="http://localhost:3000/api/csv/participants" download="test.csv">
+  <mat-card>
+   <h4>			
+    <mat-icon>group</mat-icon>
+    <div>{{participant_count}}</div> 
+    <div>Registed</div> 
+  </h4>
+</mat-card>
+</a>
 </div>
+<div class="flex-item" fxFlex>
+ <mat-card>
+   <h4>			
+    <mat-icon>how_to_reg</mat-icon>
+    <div>{{current_participant_count}}</div> 
+
+    <div>Current</div> 
+  </h4>
+</mat-card>
+</div>
+<div class="flex-item" fxFlex>
+  <mat-card>
+   <h4>			
+    <mat-icon>assignment_ind</mat-icon>
+    <div>{{to_be_printed}}</div> 
+    <div>Open Nametags</div> 
+  </h4>     
+</mat-card>
+</div>
+<div class="flex-item" fxFlex>
+  <mat-card>
+   <h4>			
+    <mat-icon>wc</mat-icon>
+    <div>female: {{female_count}}</div>
+    <div>male: {{male_count}}</div>  
+  </h4>
+</mat-card>
+</div>
+<div class="flex-item" fxFlex>
+  <mat-card>
+   <h4>			
+    <mat-icon>videogame_asset</mat-icon>
+    <div>{{thieu_count}}</div> 
+    <div>Teenager</div> 
+  </h4>     
+</mat-card>
+</div>
+<div class="flex-item" fxFlex>
+  <mat-card>
+   <h4>			
+    <mat-icon>child_friendly</mat-icon>
+    <div>{{ov_count}}</div> 
+    <div>Child</div> 
+  </h4>     
+</mat-card>
+</div>
+</div>
+
+<h2>Donations</h2>
 
 <div class="flex-container" 
-     fxLayout="row" 
-     fxLayout.xs="column"
-     fxLayoutAlign="center center"
-     fxLayoutAlign.xs="start">
+fxLayout="row" 
+fxLayout.xs="column"
+fxLayoutAlign="center center"
+fxLayoutAlign.xs="start">
 
-	<div class="flex-item" fxFlex *ngFor="let country of countries">
-	  <div>
-	    <mat-card>
-	      <h4>{{country.country}}: {{country.count}}</h4>     
-	    </mat-card>
-	  </div>
-	</div>
-
+<div class="flex-item" fxFlex>
+  <mat-card>
+    <h4>      
+      <div>{{monk_donation}}€</div> 
+      <div>monk_donation</div> 
+    </h4>
+  </mat-card>
 </div>
+<div class="flex-item" fxFlex>
+  <mat-card>
+    <h4>      
+      <div>{{semiar_donation}}€</div> 
+
+      <div>semiar_donation</div> 
+    </h4>
+  </mat-card>
+</div>
+<div class="flex-item" fxFlex>
+  <mat-card>
+    <h4>      
+      <div>{{rice_donation}}€</div> 
+      <div>rice_donation</div> 
+    </h4>     
+  </mat-card>
+</div>
+</div>
+
 

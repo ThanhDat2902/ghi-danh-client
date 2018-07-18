@@ -101,6 +101,15 @@ export class ParticipantService {
       );
   }
 
+  getDonations():Observable<any> {
+
+    return this.http.get(`${this.URL}/participants/donations`)
+      .pipe(
+        tap(data => this.log(`fetched donations`)),
+        catchError(this.handleError('getDonations', []))
+      );
+  }
+
   getParticipantsCountryCount():Observable<any> {
 
     return this.http.get(`${this.URL}/participants/count/country`)
