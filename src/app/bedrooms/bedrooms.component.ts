@@ -30,6 +30,7 @@ export class BedroomsComponent implements OnInit {
 		this.bedroomService.getBedrooms()
 		.subscribe(data => {
 			this.bedrooms = data;
+      console.log(this.bedrooms);
 			this.getCount(this.bedrooms);
 		});
 	}
@@ -37,7 +38,7 @@ export class BedroomsComponent implements OnInit {
 	getCount(rooms: Bedroom[]): void{
 		if(rooms){
 			for (let e of rooms) {
-				this.bedroomService.getOneBedroom(e._id).subscribe(listOfSleeper => {
+				this.bedroomService.getOneBedroomToday(e._id).subscribe(listOfSleeper => {
 					e.free_capacity = e.capacity-listOfSleeper.data.length;
 					e.count = listOfSleeper.data.length;
           this.total_count = this.total_count + listOfSleeper.data.length;
@@ -50,7 +51,7 @@ export class BedroomsComponent implements OnInit {
 
 	onSelectBedroom(bedroom: Bedroom): void {
 		console.log(bedroom._id)
-	    this.bedroomService.getOneBedroom(bedroom._id)
+	    this.bedroomService.getOneBedroomToday(bedroom._id)
     	.subscribe(data => {
     		this.participants = data.data;
     		this.selected_bedroom = bedroom;

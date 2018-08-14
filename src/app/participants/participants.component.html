@@ -8,10 +8,19 @@
 		</mat-form-field>
 
 		<mat-form-field>
-		  <mat-select [(ngModel)] = "type" placeholder="type" >
-		    <mat-option value="all">All</mat-option>
-		    <mat-option value="id">Id</mat-option>
-		  </mat-select>
+			<mat-select [(ngModel)] = "type" placeholder="type" >
+				<mat-option value="all">All</mat-option>
+				<mat-option value="id">Id</mat-option>
+				<mat-option value="class">Class</mat-option>
+				<mat-option value="name">Name</mat-option>
+				<mat-option value="noName">no Name</mat-option>
+								<mat-option value="noBirthDate">no Birthdate</mat-option>
+
+				<mat-option value="noClass">no Class</mat-option>
+				<mat-option value="noBedroom">no Bedroom</mat-option>
+				<mat-option value="noWorkgroup">no Workgroup</mat-option>
+				<mat-option value="unfinished">unfinished</mat-option>
+			</mat-select>
 		</mat-form-field>
 
 		<button mat-fab color="primary" class="pull-right" routerLink="/add-participant">
@@ -26,24 +35,24 @@
 
 		<table class="participants table mat-table">
 			<thead>
-	        	<tr>
-	        		<th>ID</th>
-	            	<th>Name</th>
-	            	<th>Surname</th>
-	            	<th>Dharma-Name</th>
-	            	<th>Class</th>
-	            	<th>Workgroup</th>
-	        	</tr>
-	        <tbody>
-				<tr *ngFor="let participant of participants | Search: search : type" routerLink="/participant-detail/{{participant._id}}">
-					<td>{{participant.participant_id}}</td>
-					<td>{{participant.name}}</td>
-					<td>{{participant.surname}}</td>
-					<td>{{participant.dharma_name}}</td>
-					<td>{{participant.class}}</td>
-					<td>{{participant.workgroup}}</td>
+				<tr>
+					<th>ID</th>
+					<th>Surname</th>
+					<th>Name</th>
+					<th>Dharma-Name</th>
+					<th>Class</th>
+					<th>Workgroup</th>
 				</tr>
-			</tbody>
-		</table>
-	</mat-card>
-</div>
+				<tbody>
+					<tr *ngFor="let participant of participants |Search: search : type" routerLink="/participant-detail/{{participant._id}}">
+						<td>{{participant.participant_id}}</td>
+						<td>{{participant.surname}}</td>
+						<td>{{participant.name}}</td>
+						<td>{{participant.dharma_name}}</td>
+						<td>{{participant.class}}</td>
+						<td>{{participant.workgroup}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</mat-card>
+	</div>

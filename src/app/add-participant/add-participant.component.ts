@@ -18,12 +18,13 @@ export class AddParticipantComponent implements OnInit {
   newParticipant : Participant;
   
   genders = ["male", "female", "others"];
-  countries = ["Germany", "Albania","Andorra", "Armenia","Austria","Azerbaijan","Belarus","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Georgia","Germany","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Macedonia","Malta","Moldova","Monaco","Montenegro","Netherlands","Norway","Poland","Portugal","Romania","Russia","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Turkey","Ukraine","United Kingdom","Vietnam"];
-  workgroups = ["wg1", "wg2", "wg3"];
-  classes = [1,2,3,4, 'none'];
+  //countries = ["Germany", "Albania","Andorra", "Armenia","Austria","Azerbaijan","Belarus","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Georgia","Germany","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Macedonia","Malta","Moldova","Monaco","Montenegro","Netherlands","Norway","Poland","Portugal","Romania","Russia","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Turkey","Ukraine","UK","Vietnam"];
+  countries = ["Đức Quốc", "Pháp Quốc", "Đan Mạch", "Thụy Điển", "Thụy Sĩ", "Hà Lan", "Ý Quôc", "Anh Quôc", "Phần Lan", "Áo Quôc", "Việt Nam"];
+  workgroups = ["Rửa chến", "Vệ sinh", "Hành đường", "Trai soạn", "Miễn"];
+  classes = [0,1,2,3,4, 'none'];
   bedrooms: Bedroom[];
-  means_of_transports = ['plane', 'train', 'others'];
-  previous_seminars = ['first time', '1-2', 'multiple'];
+  means_of_transports = ['plane', 'train', 'coach', 'others'];
+  previous_seminars = ['first time', 'multiple'];
   
   myControl: FormControl = new FormControl();
 

@@ -12,7 +12,7 @@ import { Bedroom } from './classes/bedroom';
 export class BedroomService {
 
   //private bedroomURL = 'http://localhost:3000/api/bedrooms';  // URL to local api
-  //private bedroomURL = 'http://192.168.2.106:3000/api/bedrooms'; 
+  //private bedroomURL = 'http://172.16.1.109:3000/api/bedrooms'; 
   private bedroomURL = 'https://ghi-danh-server.herokuapp.com/api/bedrooms';  // URL to web api
   
   constructor(
@@ -26,6 +26,15 @@ export class BedroomService {
       .pipe(
         tap(data => this.log(`fetched bedrooms`)),
         catchError(this.handleError('getBedrooms', []))
+      );
+  }
+
+  getOneBedroomToday(id: string):Observable<any> {
+     console.log(id)
+    return this.http.get(`${this.bedroomURL}/today/${id}`)
+      .pipe(
+        tap(data => this.log("getOneBedroom")),
+        catchError(this.handleError('getOneBedroom', []))
       );
   }
 

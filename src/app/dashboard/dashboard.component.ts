@@ -14,14 +14,13 @@ export class DashboardComponent implements OnInit {
   to_be_printed: number;
   printed: number;
   male_count: number;
-  child_count: number;
   thieu_count: number;
   ov_count: number;
   countries: any[];
   female_count:number;
   monk_donation: number;
   semiar_donation: number;
-  rice_donation: number;
+  fees: number;
 
   constructor(private participantService: ParticipantService) { }
 
@@ -50,19 +49,18 @@ export class DashboardComponent implements OnInit {
     })
 
     this.participantService.getParticipantsCountChild().subscribe(data => {
-      this.child_count = data;
-      this.thieu_count = data-this.ov_count;
+      this.thieu_count = data;
     })
 
     this.participantService.getParticipantsCountOV().subscribe(data => {
       this.ov_count = data;
-      this.thieu_count = this.child_count-data;
     })
 
     this.participantService.getDonations().subscribe(data => {
-      this.monk_donation = data[0].monk_donation;
+      console.log(data); 
+      this.fees = data[0].fees;
       this.semiar_donation = data[0].semiar_donation;
-      this.rice_donation = data[0].rice_donation;
+      this.monk_donation = data[0].monk_donation;
     })
 
   }

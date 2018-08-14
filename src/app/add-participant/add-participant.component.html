@@ -31,7 +31,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input [(ngModel)] = "newParticipant.birth_date" matInput placeholder="Birthdate" name="birth_date">
+        <input [(ngModel)] = "newParticipant.birth_date" matInput placeholder="Birthdate" name="birth_date" required>
       </mat-form-field>
     </mat-card>
 
@@ -91,7 +91,7 @@
     <mat-card>
       <mat-card-title>  Contacts </mat-card-title>  
       <mat-form-field>
-        <input [(ngModel)] = "newParticipant.telnr" type="number" matInput placeholder="Telefon" name="telnr">
+        <input [(ngModel)] = "newParticipant.telnr" matInput placeholder="Telefon" name="telnr">
       </mat-form-field>
 
       <mat-form-field>
@@ -117,7 +117,7 @@
     <mat-card>
       <mat-card-title>  Arrival </mat-card-title>  
       <mat-form-field>
-        <input [(ngModel)] = "newParticipant.arriaval_time" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" type="time" matInput placeholder="Time of arrival" name="arriaval_time">
+        <input [(ngModel)] = "newParticipant.arriaval_time" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" matInput placeholder="Time of arrival" name="arriaval_time">
         <owl-date-time [pickerMode]="'dialog'" #dt2></owl-date-time>
       </mat-form-field>
 
@@ -139,7 +139,7 @@
     <mat-card>
       <mat-card-title>  Departure </mat-card-title>  
       <mat-form-field>
-        <input [(ngModel)] = "newParticipant.departure_time" type="time" matInput placeholder="Time of departure" name="departure_time" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
+        <input [(ngModel)] = "newParticipant.departure_time" matInput placeholder="Time of departure" name="departure_time" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
         <owl-date-time [pickerMode]="'dialog'" #dt3></owl-date-time>
       </mat-form-field>
 
@@ -195,7 +195,7 @@
 
     <mat-card>
 
-      <mat-checkbox [(ngModel)] = "newParticipant.recieved_nametag" value='false' matInput name="recieved_nametag">recieved Nametag</mat-checkbox>
+      <mat-checkbox [(ngModel)] = "newParticipant.recieved_nametag" value='false' matInput name="recieved_nametag">received Nametag</mat-checkbox>
 
     </mat-card>
 

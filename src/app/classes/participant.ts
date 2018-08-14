@@ -19,7 +19,7 @@ export class Participant {
 	address_city: string;
 	address_zip_code: number;
 	address_country: string;
-	telnr: number;
+	telnr: string;
 	email: string;
 	fees: number;
 	semiar_donation: number;

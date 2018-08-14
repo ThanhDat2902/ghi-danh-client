@@ -42,17 +42,19 @@ fxLayoutAlign="center center"
 fxLayoutAlign.xs="start">
 
 <div class="flex-item" fxFlex>
- <a href="http://localhost:3000/api/csv/participants" download="test.csv">
+ <a href="http://172.16.1.109:3000/api/csv/participants" download="test.csv">
   <mat-card>
    <h4>			
     <mat-icon>group</mat-icon>
     <div>{{participant_count}}</div> 
-    <div>Registed</div> 
+    <div>Registered</div> 
   </h4>
 </mat-card>
 </a>
 </div>
-<div class="flex-item" fxFlex>
+<div class="flex-item" fxFlex>r
+      <a href="http://172.16.1.109:3000/api/csv/donations" download="test.csv">
+
  <mat-card>
    <h4>			
     <mat-icon>how_to_reg</mat-icon>
@@ -61,6 +63,7 @@ fxLayoutAlign.xs="start">
     <div>Current</div> 
   </h4>
 </mat-card>
+</a>
 </div>
 <div class="flex-item" fxFlex>
   <mat-card>
@@ -81,22 +84,26 @@ fxLayoutAlign.xs="start">
 </mat-card>
 </div>
 <div class="flex-item" fxFlex>
+ <a href="http://172.16.1.109:3000/api/csv/class/1" download="test.csv">
   <mat-card>
    <h4>			
     <mat-icon>videogame_asset</mat-icon>
     <div>{{thieu_count}}</div> 
-    <div>Teenager</div> 
+    <div>Thieu</div> 
   </h4>     
 </mat-card>
+</a>
 </div>
 <div class="flex-item" fxFlex>
+ <a href="http://172.16.1.109:3000/api/csv/class/0" download="test.csv">
   <mat-card>
    <h4>			
     <mat-icon>child_friendly</mat-icon>
     <div>{{ov_count}}</div> 
-    <div>Child</div> 
+    <div>Oanh Vu</div> 
   </h4>     
 </mat-card>
+</a>
 </div>
 </div>
 
@@ -108,30 +115,38 @@ fxLayout.xs="column"
 fxLayoutAlign="center center"
 fxLayoutAlign.xs="start">
 
-<div class="flex-item" fxFlex>
+<div class="flex-item" fxFlex>donations
+    <a href="http://172.16.1.109:3000/api/csv/" download="test.csv">
+
   <mat-card>
     <h4>      
-      <div>{{monk_donation}}€</div> 
-      <div>monk_donation</div> 
+      <div>{{fees}}€</div> 
+      <div>học phí</div> 
     </h4>
   </mat-card>
+</a>
 </div>
 <div class="flex-item" fxFlex>
+    <a href="http://172.16.1.109:3000/api/csv/" download="test.csv">
+
   <mat-card>
     <h4>      
       <div>{{semiar_donation}}€</div> 
 
-      <div>semiar_donation</div> 
+      <div>Khóa Học</div> 
     </h4>
   </mat-card>
+</a>
 </div>
 <div class="flex-item" fxFlex>
-  <mat-card>
-    <h4>      
-      <div>{{rice_donation}}€</div> 
-      <div>rice_donation</div> 
-    </h4>     
-  </mat-card>
+  <a href="http://172.16.1.109:3000/api/csv/" download="test.csv">
+    <mat-card>
+      <h4>      
+        <div>{{monk_donation}}€</div> 
+        <div>Trai Tăng</div> 
+      </h4>     
+    </mat-card>
+  </a>
 </div>
 </div>
 
