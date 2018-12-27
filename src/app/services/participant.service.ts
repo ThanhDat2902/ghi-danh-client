@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Participant } from './classes/participant';
-import { MessageService } from './message.service';
+import { Participant } from '../classes/participant';
+import { MessageService } from '../message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -144,8 +144,9 @@ export class ParticipantService {
   //////// Save methods //////////
 
   /** POST: add a new participant to the server */
-  addParticipant (participant: Participant): Observable<Participant> {
-    return this.http.post<Participant>(`${this.URL}/participants`, participant, httpOptions).pipe(
+  addParticipant (participant: Participant): Observable<any> {
+
+    return this.http.post<any>(`${this.URL}/participants`, participant, httpOptions).pipe(
       tap((participant: Participant) => this.log(`added participant`)),
       catchError(this.handleError<Participant>('addParticipant'))
     );

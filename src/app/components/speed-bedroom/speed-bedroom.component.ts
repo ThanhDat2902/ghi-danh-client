@@ -5,10 +5,10 @@
 	import {FormControl} from '@angular/forms';
 	import {Observable} from 'rxjs';
 
-	import { Bedroom } from '../classes/bedroom';
+	import { Bedroom } from '../../classes/bedroom';
 
-	import { Participant } from '../classes/participant';
-	import { ParticipantService } from '../participant.service';
+	import { Participant } from '../../classes/participant';
+	import { ParticipantService } from '../../services/participant.service';
 
 	@Component({
 		selector: 'app-speed-bedroom',

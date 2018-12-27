@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import {FormControl} from '@angular/forms';
 
-import { Participant } from '../classes/participant';
-import { Bedroom } from '../classes/bedroom';
-import { ParticipantService } from '../participant.service';
+import { Participant } from '../../classes/participant';
+import { Bedroom } from '../../classes/bedroom';
+import { ParticipantService } from '../../services/participant.service';
+
+import {MatSnackBar} from '@angular/material';
+
 
 @Component({
   selector: 'app-add-participant',
@@ -13,10 +16,9 @@ import { ParticipantService } from '../participant.service';
 })
 
 export class AddParticipantComponent implements OnInit {
-
+  newID: string;
   participants: Participant[];
   newParticipant : Participant;
-  
   genders = ["male", "female", "others"];
   //countries = ["Germany", "Albania","Andorra", "Armenia","Austria","Azerbaijan","Belarus","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Georgia","Germany","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Macedonia","Malta","Moldova","Monaco","Montenegro","Netherlands","Norway","Poland","Portugal","Romania","Russia","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Turkey","Ukraine","UK","Vietnam"];
   countries = ["Đức Quốc", "Pháp Quốc", "Đan Mạch", "Thụy Điển", "Thụy Sĩ", "Hà Lan", "Ý Quôc", "Anh Quôc", "Phần Lan", "Áo Quôc", "Việt Nam"];
@@ -30,7 +32,8 @@ export class AddParticipantComponent implements OnInit {
 
   constructor(
     private participantService: ParticipantService,
-    private location: Location) { }
+    private location: Location,
+    public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getParticipants();
@@ -39,6 +42,7 @@ export class AddParticipantComponent implements OnInit {
     this.newParticipant.tho_ngu_gioi = false;
     this.newParticipant.tho_bo_tat_gioi = false;
     this.newParticipant.recieved_nametag = false;
+    this.newID = 'fail';
 
   }
 
@@ -64,8 +68,19 @@ export class AddParticipantComponent implements OnInit {
         var datearray = this.newParticipant.birth_date.split(".");
         this.newParticipant.birth_date = datearray[1] + '/' + datearray[0] + '/' + datearray[2];
      }
-  	this.participantService.addParticipant(this.newParticipant)
-      .subscribe(() => this.goBack());
+     this.participantService.addParticipant(this.newParticipant).subscribe(data => 
+       {
+         if(data){
+           console.log(data.message);
+           this.openSnackBar(data.message, "close");
+           this.goBack();
+         }else{
+           this.openSnackBar("Error", "close");
+         }
+       })
+
+       //this.openSnackBar(data.name,"world"));
+
   }
 
   goBack(): void {
@@ -78,6 +93,12 @@ export class AddParticipantComponent implements OnInit {
             return myArray[i];
         }
     }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
 }

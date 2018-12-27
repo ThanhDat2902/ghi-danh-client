@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Participant } from '../classes/participant';
-import { ParticipantService } from '../participant.service';
+import { Participant } from '../../classes/participant';
+import { ParticipantService } from '../../services/participant.service';
 
 @Component({
   selector: 'app-dashboard',

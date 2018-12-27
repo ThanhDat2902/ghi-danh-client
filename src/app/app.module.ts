@@ -21,7 +21,8 @@ import { MatToolbarModule,
 			MatIconModule,
 			MatGridListModule,
 			MatProgressBarModule,
-			MatNativeDateModule} from '@angular/material';
+			MatNativeDateModule,
+			MatSnackBarModule} from '@angular/material';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -29,21 +30,21 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
 import { MessagesComponent } from './messages/messages.component';
-import { ParticipantsComponent } from './participants/participants.component';
+import { ParticipantsComponent } from './components/participants/participants.component';
 
-import { AddParticipantComponent } from './add-participant/add-participant.component';
-import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
-import { BedroomsComponent } from './bedrooms/bedrooms.component';
-import { AddBedroomComponent } from './add-bedroom/add-bedroom.component';
+import { AddParticipantComponent } from './components/add-participant/add-participant.component';
+import { ParticipantDetailsComponent } from './components/participant-details/participant-details.component';
+import { BedroomsComponent } from './components/bedrooms/bedrooms.component';
+import { AddBedroomComponent } from './components/add-bedroom/add-bedroom.component';
 
 import { MessageService } from './message.service';
-import { ParticipantService } from './participant.service';
-import { BedroomService } from './bedroom.service';
-import { BedroomDetailsComponent } from './bedroom-details/bedroom-details.component';
+import { ParticipantService } from './services/participant.service';
+import { BedroomService } from './services/bedroom.service';
+import { BedroomDetailsComponent } from './components/bedroom-details/bedroom-details.component';
 import { SearchPipe } from './search.pipe';
-import { ClassDetailComponent } from './class-detail/class-detail.component';
-import { SpeedBedroomComponent } from './speed-bedroom/speed-bedroom.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { ClassDetailComponent } from './components/class-detail/class-detail.component';
+import { SpeedBedroomComponent } from './components/speed-bedroom/speed-bedroom.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 		MatAutocompleteModule,
 		MatButtonModule,
 		MatProgressBarModule,
+		MatSnackBarModule,
 		OwlDateTimeModule, 
 		OwlNativeDateTimeModule,
 		BrowserAnimationsModule,

@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { MessageService } from './message.service';
-import { Bedroom } from './classes/bedroom';
+import { MessageService } from '../message.service';
+import { Bedroom } from '../classes/bedroom';
 
 @Injectable()
 export class BedroomService {

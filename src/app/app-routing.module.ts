@@ -1,16 +1,16 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ParticipantsComponent }  from './participants/participants.component';
-import { AddParticipantComponent } from './add-participant/add-participant.component';
-import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
+import { ParticipantsComponent }  from './components/participants/participants.component';
+import { AddParticipantComponent } from './components/add-participant/add-participant.component';
+import { ParticipantDetailsComponent } from './components/participant-details/participant-details.component';
 
-import { BedroomsComponent } from './bedrooms/bedrooms.component';
-import { AddBedroomComponent } from './add-bedroom/add-bedroom.component';
-import { BedroomDetailsComponent } from './bedroom-details/bedroom-details.component';
-import { ClassDetailComponent } from './class-detail/class-detail.component';
-import { SpeedBedroomComponent } from './speed-bedroom/speed-bedroom.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { BedroomsComponent } from './components/bedrooms/bedrooms.component';
+import { AddBedroomComponent } from './components/add-bedroom/add-bedroom.component';
+import { BedroomDetailsComponent } from './components/bedroom-details/bedroom-details.component';
+import { ClassDetailComponent } from './components/class-detail/class-detail.component';
+import { SpeedBedroomComponent } from './components/speed-bedroom/speed-bedroom.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 

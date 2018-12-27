@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BedroomService } from '../bedroom.service';
-import { Bedroom } from '../classes/bedroom';
-import { Participant } from '../classes/participant';
+import { BedroomService } from '../../services/bedroom.service';
+import { Bedroom } from '../../classes/bedroom';
+import { Participant } from '../../classes/participant';
 
 @Component({
 	selector: 'app-bedrooms',

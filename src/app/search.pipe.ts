@@ -59,7 +59,7 @@ export class SearchPipe implements PipeTransform {
 
             case "unfinished":
             return value.filter(function(item){
-                return item.name == null || item.name == "" || item.class == null || item.class == "" || item.bedroom == null || item.bedroom == "" item.workgroup == null || item.workgroup == "";
+                return item.name == null || item.name == "" || item.class == null || item.class == "" || item.bedroom == null || item.bedroom == "" || item.workgroup == null || item.workgroup == "";
             });
 
             default:

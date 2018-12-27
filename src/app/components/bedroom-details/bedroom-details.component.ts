@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Bedroom } from '../classes/bedroom';
-import { BedroomService } from '../bedroom.service';
-import { Participant } from '../classes/participant';
+import { Bedroom } from '../../classes/bedroom';
+import { BedroomService } from '../../services/bedroom.service';
+import { Participant } from '../../classes/participant';
 
 
 @Component({

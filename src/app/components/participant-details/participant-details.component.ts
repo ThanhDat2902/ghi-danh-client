@@ -4,8 +4,8 @@ import { Location, DatePipe } from '@angular/common';
 import {FormControl} from '@angular/forms';
 
 
-import { Participant } from '../classes/participant';
-import { ParticipantService } from '../participant.service';
+import { Participant } from '../../classes/participant';
+import { ParticipantService } from '../../services/participant.service';
 
 @Component({
   selector: 'app-participant-details',
