@@ -12,8 +12,8 @@ import { Bedroom } from '../classes/bedroom';
 export class BedroomService {
 
   //private bedroomURL = 'http://localhost:3000/api/bedrooms';  // URL to local api
-  //private bedroomURL = 'http://172.16.1.109:3000/api/bedrooms'; 
-  private bedroomURL = 'https://ghi-danh-server.herokuapp.com/api/bedrooms';  // URL to web api
+  private bedroomURL = 'http://192.168.1.7:3000/api/bedrooms'; 
+  //private bedroomURL = 'https://ghi-danh-server.herokuapp.com/api/bedrooms';  // URL to web api
   
   constructor(
     private http: HttpClient,

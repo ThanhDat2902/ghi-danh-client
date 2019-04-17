@@ -27,6 +27,11 @@ export class SearchPipe implements PipeTransform {
                 return item.class == query;
             });
 
+            case "class":
+            return value.filter(function(item){
+                return item.workgroup == query;
+            });
+
             case "name":
             return value.filter(function(item){
                 if(item.name){

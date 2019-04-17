@@ -59,7 +59,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input type="text" placeholder="Workgroup" [(ngModel)]="newParticipant.workgroup" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto_workgroup" name="workgroup"> 
+        <input type="text" placeholder="Group" [(ngModel)]="newParticipant.workgroup" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto_workgroup" name="workgroup"> 
 
         <mat-autocomplete #auto_workgroup="matAutocomplete" autoActiveFirstOption>
           <mat-option *ngFor="let item of workgroups | Search: newParticipant.workgroup" value="{{item}}">
